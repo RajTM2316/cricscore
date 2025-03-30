@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criclet Score</title>
+    <style>
+        body{
+            background-color: #f6fff8;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+.navbar {
+    background-color: #6b9080;
+    padding: 15px 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-list {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-list li {
+    margin: 0 20px;
+}
+
+.nav-list li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.nav-list li a:hover {
+    color: #001233;
+    transform: scale(1.1);
+}
+
+.nav-list li a:active {
+    color: #39ff14;
+}
+
+        h1{
+            text-align: center;
+            text-decoration: underline;
+            font-size: larger;
+            font-weight: bolder;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            color: #39ff14;
+        }
+        .logo{
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+        .ind{
+            border-radius: 50%;
+            width: 200px;
+            height:200px;
+        }
+        .nz{
+            float: right;
+            border-radius: 50%;
+            width: 200px;
+            height:200px;
+        }
+        .heading{
+            text-align: center;
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            color:#6b9080 ;
+            text-transform: uppercase;
+        }
+        .scorecard{
+            width: 80%;
+            margin: auto;
+            border-collapse: collapse;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .scorecard th,td{
+            border: 1px solid ;
+            padding: 12px;
+            text-align: left;
+        }
+        .scorecard th{
+            background-color: #eaf4f4;
+        }
+        .scorecard tr:nth-child(even)
+        {
+            background-color: #f2f2f2;
+        }
+        .scorecard:hover{
+            background-color: #cce3de;
+        }
+        .bowlingscore {
+    width: 80%;
+    margin: 30px auto;
+    border-collapse: collapse;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.bowlingscore th, 
+.bowlingscore td {
+    border: 1px solid #6b9080;
+    padding: 12px;
+    text-align: center;
+}
+
+.bowlingscore th {
+    background-color: #eaf4f4;
+    color: #001233;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.bowlingscore tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.bowlingscore tr:hover {
+    background-color: #cce3de;
+}
+
+.bowlingscore td {
+    color: #001233;
+}
+.match-summary {
+    width: 80%;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #eaf4f4;
+    border: 2px solid #6b9080;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.match-summary h2 {
+    text-align: center;
+    color: #001233;
+    text-transform: uppercase;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+.summary-details {
+    font-size: 1.2em;
+    color: #6b9080;
+    line-height: 1.6;
+}
+
+.summary-details strong {
+    color: #001233;
+}
+@media (max-width: 768px) {
+    .nav-list {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-list li {
+        margin: 10px 0;
+    }
+
+    .logo {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .ind, .nz {
+        width: 150px;
+        height: 150px;
+    }
+
+    .scorecard, .bowlingscore {
+        width: 100%;
+        overflow-x: auto;
+        display: block;
+    }
+
+    .match-summary {
+        width: 95%;
+        font-size: 1em;
+    }
+}
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="nav-list">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+    <h1>Champions Trophy Final</h1>
+    <div class="logo">
+<div class="india">
+    <img class="ind" src="cricket_india.jpeg">
+</div>
+<div class="heading">
+    <h2>
+        india<br>vs<br> new zealand <br>final,Dubai
+    </h2>
+</div>
+<div class="nz">
+    <img class="nz" src="cricket_nz.jpeg">
+</div>
+    </div>
+    <div class="1ing">
+<h2 style="color:#001233; text-align: center;">First Innings</h2>
+<table class="scorecard">
+    <thead>
+<tr>
+    <th>Name</th>
+    <th>Run</th>
+    <th>Ball</th>
+    <th>4s</th>
+    <th>6s</th>
+    <th>Sr.</th>
+</tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Will Young</td>
+            <td>15</td>
+            <td>23</td>
+            <td>2</td>
+            <td>0</td>
+            <td>65.22</td>
+        </tr>
+        <tr>
+            <td>Rachin Ravindra</td>
+            <td>37</td>
+            <td>29</td>
+            <td>4</td>
+            <td>1</td>
+            <td>127.59</td>
+        </tr>
+        <tr>
+            <td>Williamson</td>
+            <td>11</td>
+            <td>14</td>
+            <td>1</td>
+            <td>0</td>
+            <td>78.57</td>
+        </tr>
+        <tr>
+            <td>Daryll Mitchell</td>
+            <td>63</td>
+            <td>101</td>
+            <td>3</td>
+            <td>0</td>
+            <td>62.38</td>
+        </tr>
+        <tr>
+            <td>Latham (wk)</td>
+            <td>14</td>
+            <td>30</td>
+            <td>0</td>
+            <td>0</td>
+            <td>46.67</td>
+        </tr>
+        <tr>
+            <td>Glenn Phillips</td>
+            <td>34</td>
+            <td>52</td>
+            <td>2</td>
+            <td>1</td>
+            <td>65.38</td>
+        </tr>
+        <tr>
+            <td>Michael Bracewell</td>
+            <td>53</td>
+            <td>40</td>
+            <td>3</td>
+            <td>2</td>
+            <td>132.50</td>
+        </tr>
+        <tr>
+            <td>Santner</td>
+            <td>8</td>
+            <td>10</td>
+            <td>0</td>
+            <td>0</td>
+            <td>80.00</td>
+        </tr>
+        <tr>
+            <td>Nathan Smith</td>
+            <td>0</td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0.00</td>
+        </tr>
+        <tr>
+            <th>Extras</th>
+            <td>16</td>
+            <td colspan="4"></td>
+        </tr>
+        <tr>
+            <th>Total</th>
+            <td>251</td>
+            <td colspan="4"></td>
+        </tr>
+    </tbody>
+</table>
+<table class="bowlingscore">
+    <thead>
+        <tr>
+            <th>name</th>
+            <th>over</th>
+            <th>maiden</th>
+            <th>run</th>
+            <th>wicket</th>
+            <th>wide</th>
+            <th>economy</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Shami</td>
+            <td>9</td>
+            <td>0</td>
+            <td>74</td>
+            <td>1</td>
+            <td>1</td>
+            <td>8.20</td>
+        </tr>
+        <tr>
+            <td>Hardik Pandya</td>
+            <td>3</td>
+            <td>0</td>
+            <td>30</td>
+            <td>0</td>
+            <td>3</td>
+            <td>10.00</td>
+        </tr> 
+            <tr>
+            <td>Varun Chakravarthy</td>
+            <td>10</td>
+            <td>0</td>
+            <td>45</td>
+            <td>2</td>
+            <td>7</td>
+            <td>4.50</td>
+        </tr>
+        <tr>
+            <td>Kuldeep Yadav</td>
+            <td>10</td>
+            <td>0</td>
+            <td>40</td>
+            <td>2</td>
+            <td>1</td>
+            <td>8.20</td>
+        </tr>
+        <tr>
+            <td>Axar Patel</td>
+            <td>8</td>
+            <td>0</td>
+            <td>29</td>
+            <td>0</td>
+            <td>1</td>
+            <td>3.60</td>
+        </tr>
+        <tr>
+            <td>Ravindra Jadeja</td>
+            <td>10</td>
+            <td>0</td>
+            <td>30</td>
+            <td>1</td>
+            <td>0</td>
+            <td>3.00</td>
+        </tr>
+    </tbody>
+</table>
+    </div>
+    <div class="2ing">
+        <h2 style="color:#001233; text-align: center;">Second Innings</h2> 
+    </div>
+    <table class="scorecard">
+        <thead>
+    <tr>
+        <th>Name</th>
+        <th>Run</th>
+        <th>Ball</th>
+        <th>4s</th>
+        <th>6s</th>
+        <th>Sr.</th>
+    </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Rohit Sharma</td>
+                <td>76</td>
+                <td>83</td>
+                <td>7</td>
+                <td>3</td>
+                <td>91.57</td>
+            </tr>
+            <tr>
+                <td>Shubhaman Gill</td>
+                <td>31</td>
+                <td>50</td>
+                <td>0</td>
+                <td>1</td>
+                <td>62.00</td>
+            </tr>
+            <tr>
+                <td>Virat Kohli</td>
+                <td>1</td>
+                <td>2</td>
+                <td>0</td>
+                <td>0</td>
+                <td>50.00</td>
+            </tr>
+            <tr>
+                <td>Shreyash Iyyer</td>
+                <td>48</td>
+                <td>62</td>
+                <td>2</td>
+                <td>2</td>
+                <td>77.42</td>
+            </tr>
+            <tr>
+                <td>Axar Patel</td>
+                <td>29</td>
+                <td>20</td>
+                <td>1</td>
+                <td>1</td>
+                <td>72.50</td>
+            </tr>
+            <tr>
+                <td>KL Rahul (WK)</td>
+                <td>34</td>
+                <td>33</td>
+                <td>1</td>
+                <td>1</td>
+                <td>103.30</td>
+            </tr>
+            <tr>
+                <td>Hardik Pandya</td>
+                <td>18</td>
+                <td>18</td>
+                <td>1</td>
+                <td>1</td>
+                <td>100.00</td>
+            </tr>
+            <tr>
+                <td>Ravindra Jadeja</td>
+                <td>9</td>
+                <td>6</td>
+                <td>1</td>
+                <td>0</td>
+                <td>150.00</td>
+            </tr>
+            <tr>
+                <th>Extras</th>
+                <td>8</td>
+                <td colspan="4"></td>
+            </tr>
+            <tr>
+                <th>Total</th>
+                <td>254</td>
+                <td colspan="4"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+<table class="bowlingscore">
+    <thead>
+        <tr>
+            <th>name</th>
+            <th>over</th>
+            <th>maiden</th>
+            <th>run</th>
+            <th>wicket</th>
+            <th>wide</th>
+            <th>economy</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Kyle Jamieson</td>
+            <td>5</td>
+            <td>0</td>
+            <td>24</td>
+            <td>1</td>
+            <td>1</td>
+            <td>4.80</td>
+        </tr>
+        <tr>
+            <td>Nathan Smith</td>
+            <td>2</td>
+            <td>0</td>
+            <td>22</td>
+            <td>0</td>
+            <td>0</td>
+            <td>11</td>
+        </tr>
+        <tr>
+            <td>William ORourke</td>
+            <td>7</td>
+            <td>0</td>
+            <td>56</td>
+            <td>0</td>
+            <td>4</td>
+            <td>8.00</td>
+        </tr> 
+            <tr>
+            <td>Santner</td>
+            <td>10</td>
+            <td>0</td>
+            <td>46</td>
+            <td>2</td>
+            <td>1</td>
+            <td>4.60</td>
+        </tr>
+        <tr>
+            <td>Rachin Ravindra</td>
+            <td>10</td>
+            <td>1</td>
+            <td>47</td>
+            <td>1</td>
+            <td>2</td>
+            <td>4.70</td>
+        </tr>
+        <tr>
+            <td>Micheal Bracewell</td>
+            <td>10</td>
+            <td>1</td>
+            <td>28</td>
+            <td>1</td>
+            <td>0</td>
+            <td>2.80</td>
+        </tr>
+        <tr>
+            <td>Glenn Phillips</td>
+            <td>5</td>
+            <td>0</td>
+            <td>31</td>
+            <td>0</td>
+            <td>0</td>
+            <td>6.20</td>
+        </tr>
+    </tbody>
+</table>
+<div class="match-summary">
+    <h2>Match Summary</h2>
+    <div class="summary-details">
+        <p><strong>Man of the Match:</strong> Rohit Sharma </p>
+        <p><strong>Winner:</strong> India won by 4 wickets </p>
+    </div>
+</div>
+</html>
